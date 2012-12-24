@@ -1,6 +1,2 @@
 #!/bin/bash
-
 bash_theme b-con
-
-unset PS1_PRE PS1_POST
-
