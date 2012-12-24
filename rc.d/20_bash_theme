@@ -6,7 +6,7 @@
 function bash_theme {
 	local THEME=$1
 	[ -z "$THEME" ] && THEME=proml
-	local p=; for p in {"$HOME/.","/etc/"}bash_themes; do
+	local p=; for p in "$HOME/.bash/themes" {"$HOME/.","/etc/"}bash_themes; do
 		local q=; for q in "$p/$THEME.sh" "$p/$THEME-$USER.sh"; do
 			if [[ -e "$q" ]]; then
 				. "$q"
