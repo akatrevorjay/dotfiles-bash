@@ -3,29 +3,9 @@
 ## Don't load anything else if we're not interactive
 shopt -oq posix && return
 
-## bashrc.d && bash_completion.d
-for i in "$HOME/.bash"{rc,_completion}".d/"*; do [[ -x "$i" || -h "$i" ]] && . "$i"; done
+## ~/.bash rc.d and completion.d and "-local"s
+for i in "$HOME/.bash/"{rc,completion}".d/"* "$HOME/.bash/"{rc,completion}".d-local/"*; do
+    [[ -x "$i" || -h "$i" ]] && . "$i"
+done
 
 # EOF
-
-PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-export PATH=$PATH:/home/trevorj/NVPACK/android-sdk-linux/platform-tools
-
-export PATH=$PATH:/home/trevorj/NVPACK/android-sdk-linux/tools
-
-export NDKROOT="/home/trevorj/NVPACK/android-ndk-r8"
-
-# Bash shell driver for 'go' (http://code.google.com/p/go-tool/).
-function go {
-    export GO_SHELL_SCRIPT=$HOME/.__tmp_go.sh
-    python -m go $*
-    if [ -f $GO_SHELL_SCRIPT ] ; then
-        source $GO_SHELL_SCRIPT
-    fi
-    unset GO_SHELL_SCRIPT
-}
-
-LIBGUESTFS_ATTACH_METHOD=libvirt
-LIBGUESTFS_PATH=/usr/lib/guestfs
-
