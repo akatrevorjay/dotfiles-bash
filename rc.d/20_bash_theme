@@ -11,8 +11,12 @@ function bash_theme {
 			if [[ -e "$q" ]]; then
 				. "$q"
 				declare -F -f "$THEME" >/dev/null 2>&1 && "$THEME"
-				
-				[[ -f "$p/${THEME}.dircolors" ]] && eval `dircolors -b "$p/${THEME}.dircolors"`
+
+				if [[ -f "$p/${THEME}.dircolors" ]]; then
+                    eval `dircolors -b "$p/${THEME}.dircolors"`
+                elif [[ -f "$HOME/.dircolors" ]]; then
+                    eval `dircolors -b "$HOME/.dircolors"`
+                fi
 
 				unset PS1_PRE PS1_POST
 				break 2
