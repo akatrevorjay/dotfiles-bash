@@ -1,3 +1,0 @@
-#!/bin/bash
-# Glues prompt to first column, avoiding carp
-export PS1="\[\033[G\]$PS1"

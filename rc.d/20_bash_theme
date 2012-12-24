@@ -18,6 +18,9 @@ function bash_theme {
                     eval `dircolors -b "$HOME/.dircolors"`
                 fi
 
+                # Glue prompt to first column
+                export PS1="\[\033[G\]$PS1"
+
 				unset PS1_PRE PS1_POST
 				break 2
 			fi
