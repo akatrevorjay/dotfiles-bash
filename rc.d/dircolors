@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Parse dircolors
+eval `dircolors -b ~/.dircolors`
+

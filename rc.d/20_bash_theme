@@ -1,0 +1,24 @@
+#!/bin/bash
+
+. "$HOME/code/github/bashism/bashism.d/colors.sh"
+
+# PS theming
+function bash_theme {
+	local THEME=$1
+	[ -z "$THEME" ] && THEME=proml
+	local p=; for p in {"$HOME/.","/etc/"}bash_themes; do
+		local q=; for q in "$p/$THEME.sh" "$p/$THEME-$USER.sh"; do
+			if [[ -e "$q" ]]; then
+				. "$q"
+				declare -F -f "$THEME" >/dev/null 2>&1 && "$THEME"
+				
+				[[ -f "$p/${THEME}.dircolors" ]] && eval `dircolors -b "$p/${THEME}.dircolors"`
+
+				unset PS1_PRE PS1_POST
+				break 2
+			fi
+		done
+	done
+}
+
+
