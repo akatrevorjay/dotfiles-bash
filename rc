@@ -8,4 +8,13 @@ for i in "$HOME/.bash/"{rc,completion,aliases}".d/"* "$HOME/.bash/"{rc,completio
     [[ -x "$i" || -h "$i" ]] && . "$i"
 done
 
+echo
+echo '"Done is better than perfect" --fb'
+echo
+echo 'Remember to run:'
+echo 'tjstart'
+echo
+
+export PATH="$PATH:$HOME/.local/google_appengine"
+
 # EOF

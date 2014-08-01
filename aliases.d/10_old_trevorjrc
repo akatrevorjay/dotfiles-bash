@@ -13,3 +13,6 @@ alias dfh='df -h'
 # Mac only
 #alias mysql=/usr/local/mysql/bin/mysql
 #alias mysqladmin=/usr/local/mysql/bin/mysqladmin
+
+alias nobyobu='export LC_BYOBU=0'
+
