@@ -1,0 +1,9 @@
+#!/bin/bash
+alias git-log='git log --decorate --branches --graph'
+
+# $ wow
+# $ such commit
+# $ very push
+alias such=git
+alias very=git
+alias wow='git status'

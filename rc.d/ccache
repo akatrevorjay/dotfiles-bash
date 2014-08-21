@@ -1,0 +1,4 @@
+#!/bin/bash
+export PATH="/usr/lib/ccache:$PATH"  # ccache
+#export PATH="/usr/lib/distcc:$PATH"  # distcc
+export CCACHE_PREFIX=distcc
