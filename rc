@@ -11,9 +11,6 @@ done
 echo
 echo '"Done is better than perfect" --fb'
 echo
-echo 'Remember to run:'
-echo 'tjstart'
-echo
 
 export PATH="$PATH:$HOME/.local/google_appengine"
 

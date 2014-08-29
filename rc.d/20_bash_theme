@@ -1,6 +1,7 @@
 #!/bin/bash
 
-. "$HOME/code/github/bashism/bashism.d/colors.sh"
+[[ ! -e "$HOME/code/github/bashism/bashism.d/colors.sh" ]] \
+  || . "$HOME/code/github/bashism/bashism.d/colors.sh"
 
 # PS theming
 function bash_theme {
