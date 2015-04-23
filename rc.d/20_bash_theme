@@ -28,5 +28,3 @@ function bash_theme {
         done
     done
 }
-
-
