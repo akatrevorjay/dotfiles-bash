@@ -9,6 +9,7 @@ for ((i=1; i <= $#fpath; ++i)); do
 	files=($dir/*(N-.))
 	if [[ -w $dir:h && -n $files ]]; then
 		files=(${${(M)files%/*/*}#/})
+        echo "files=" "${files[@]}"
 		if ( cd $dir:h &&
 			zrecompile -p -U -z $zwc $files ); then
 			fpath[i]=$fpath[i].zwc

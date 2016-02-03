@@ -54,27 +54,40 @@ ZSH_CUSTOM="$SHELL_CONF_DIR/zsh-custom"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=( \
     git \
-    zsh_reload \
-    fasd \
-    autoenv \
-    history-substring-search \
-    dirpersist \
-    safe-paste \
-    battery \
-    command-not-found \
     git-extras \
     git-flow-avh \
     git-hubflow \
     gitignore \
     github \
-    docker \
-    docker-compose \
-    redis-cli \
+    \
+    zsh_reload \
+    fasd \
+    autoenv \
+    \
     python \
     pip \
+    #vitualenv \
+    #vitualenvwrapper \
+    autopep8 \
+    pep8 \
+    pylint \
+    \
+    history-substring-search \
+    dirpersist \
+    safe-paste \
+    battery \
+    command-not-found \
     bgnotify \
     colored-man-pages \
     command-not-found \
-    common-aliases \
+    #common-aliases \
+    man \
+    \
+    aws \
+    httpie \
+    #vi-mode \
+    #docker \
+    #docker-compose \
+    #redis-cli \
 )
 

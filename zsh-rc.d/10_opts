@@ -2,6 +2,7 @@
 
 # Set this early just in case it fails before setting this later.
 ZSH_COMPDUMP="$HOME/.zcompdump-${HOST}-${ZSH_VERSION}"
+ZSH_CACHE_DIR="$SHELL_CONF_DIR/zsh-cache"
 
 # Add our local zsh-functions dir
 fpath+=("$SHELL_CONF_DIR/zsh-functions")
@@ -32,7 +33,6 @@ setopt \
 setopt auto_cd                  # if command is a path, cd into it
 setopt auto_remove_slash        # self explicit
 #setopt chase_links              # resolve symlinks
-#setopt correct                  # try to correct spelling of commands
 setopt extended_glob            # activate complex pattern globbing
 setopt glob_dots                # include dotfiles in globbing
 #setopt print_exit_value         # print return value if non-zero
@@ -97,10 +97,11 @@ autoload -U compinit bashcompinit
 #compinit
 bashcompinit
 zmodload -i zsh/complist
+
 setopt hash_list_all            # hash everything before completion
 setopt completealiases          # complete alisases
-setopt always_to_end            # when completing from the middle of a word, move the cursor to the end of the word
-setopt complete_in_word         # allow completion from within a word/phrase
+#setopt always_to_end            # when completing from the middle of a word, move the cursor to the end of the word
+#setopt complete_in_word         # allow completion from within a word/phrase
 #setopt correct                  # spelling correction for commands
 setopt list_ambiguous           # complete as much of a completion until it gets ambiguous.
 

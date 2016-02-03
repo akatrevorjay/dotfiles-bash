@@ -1,24 +1,26 @@
 #!/bin/sh
 
-#export PATH="$HOME/.pyenv/shims:$PATH"
+: ${PYENV_ROOT:="$HOME/.pyenv"}
+export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
 
 ## pyenv
 alias pv='pyenv'
 alias activate='pyenv activate'
 #alias deactivate='pyenv deactivate'
 if has_cmd pyenv; then
-    eval "$(pyenv init -)"
+    #eval "$(pyenv init - --no-rehash zsh)"
+    eval "$(pyenv init - zsh)"
+
+    # If we don't do the above then this is needed
+    #source "$PYENV_ROOT/completions/pyenv.zsh"
 
     ## virtualenv
     #export PYENV_VIRTUALENV_CACHE_PATH="$CACHES_DIR/pip"
-    if has_cmd pyenv-virtualenv; then
-        eval "$(pyenv virtualenv-init -)"
-    fi
+    # Used to check if this bin existed, but can't do that without each plugin being in PATH, ugh
+    eval "$(pyenv virtualenv-init - zsh)" || :
 
     ## virtualenvwrapper
     #export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-    if has_cmd pyenv-virtualenvwrapper; then
-        pyenv virtualenvwrapper_lazy
-    fi
+    pyenv virtualenvwrapper || :
 fi
 
