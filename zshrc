@@ -10,6 +10,9 @@ export SHELL_CONF_DIR="$HOME/.shell"
 # unfortunately, almost nothing pays attention to this.
 ZDOTDIR="$HOME"
 
+#ZSH_ZWC="$SHELL_CONF_DIR/.zshrc.zwc"
+ZSH_ZWC="$ZDOTDIR/.zshrc.zwc"
+
 # Set env up
 CURRENT_SHELL="$ZSH_NAME"
 
@@ -20,5 +23,14 @@ CURRENT_SHELL="$ZSH_NAME"
 #[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 ## Shell conf
-[ ! -e "$SHELL_CONF_DIR/rc" ] || source "$SHELL_CONF_DIR/rc"
+#source "$SHELL_CONF_DIR/rc"
+#
+if [[ -e "$ZSH_ZWC" ]]; then
+    fpath=("$ZSH_ZWC" $fpath)
+else
+    fpath=("$SHELL_CONF_DIR/zsh-functions" $fpath)
+fi
+
+autoload -Uz shellconf-init
+shellconf-init
 

@@ -45,18 +45,22 @@ declare -l SYSTEM="$(uname -s)"
 	done
 }
 
-if [[ ! -d "$SHELL_CONF_DIR" ]]; then
-    echo "SHELL_CONF_DIR=\"$SHELL_CONF_DIR\" does not exist!" >&2
-    return 1
-fi
+-shell-conf-init() {
+    if [[ ! -d "$SHELL_CONF_DIR" ]]; then
+        echo "SHELL_CONF_DIR=\"$SHELL_CONF_DIR\" does not exist!" >&2
+        return 1
+    fi
 
-echo "ShellConf: Init" >&2
-ret=()
--shell-conf-files
-for f in "${ret[@]}"; do
-    f_rel="${f##$HOME/.shell/}"
-    echo "-- ${f_rel##*/}: $f_rel" >&2
-    . "$f"
-done
-unset ret f f_rel
+    echo "ShellConf: Init" >&2
+    ret=()
+    -shell-conf-files
+    for f in "${ret[@]}"; do
+        f_rel="${f##$HOME/.shell/}"
+        echo "-- ${f_rel##*/}: $f_rel" >&2
+        . "$f"
+    done
+    unset ret f f_rel
+}
+
+-shell-conf-init
 
