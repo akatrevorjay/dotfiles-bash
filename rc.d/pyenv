@@ -10,7 +10,7 @@ if has_cmd pyenv; then
     eval "$(pyenv init -)"
 
     ## virtualenv
-    export PYENV_VIRTUALENV_CACHE_PATH="$CACHES_DIR/pip"
+    #export PYENV_VIRTUALENV_CACHE_PATH="$CACHES_DIR/pip"
     if has_cmd pyenv-virtualenv; then
         eval "$(pyenv virtualenv-init -)"
     fi

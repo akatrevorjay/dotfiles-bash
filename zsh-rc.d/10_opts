@@ -1,12 +1,25 @@
 #!/bin/zsh
 
-# globs
-setopt nullglob extended_glob case_glob
-setopt autocd cdablevars autolist autopushd
-setopt nocorrect nomenucomplete listpacked listtypes bashautolist listambiguous
-setopt markdirs checkjobs
+##
+## modules
+##
+zmodload zsh/attr zsh/clone zsh/compctl zsh/computil zsh/datetime \
+    zsh/mathfunc zsh/pcre zsh/regex zsh/param/private \
+    zsh/sched zsh/system \
+    zsh/termcap zsh/terminfo zsh/zpty zsh/zselect zsh/zutil
+#zmodload zsh/files
 
-set -N -T
+##
+## Opts
+##
+
+# globs
+setopt \
+    nullglob extended_glob case_glob \
+    autocd cdablevars autolist autopushd \
+    nomenucomplete listpacked listtypes bashautolist listambiguous \
+    markdirs checkjobs \
+    && :
 
 autoload -Uz \
     zrecompile \
@@ -18,20 +31,19 @@ autoload -Uz \
     bashcompinit \
     sticky-note \
     zkbd \
-	incremental-complete-word \
-	zsh-mime-setup zsh-mime-handler \
+    incremental-complete-word \
+    zsh-mime-setup zsh-mime-handler \
     pick-web-browser \
     nslookup \
     regexp-replace \
-	chpwd_recent_dirs cdr add-zsh-hook \
+    chpwd_recent_dirs cdr add-zsh-hook \
     promptinit \
-	&& :
+    && :
 
 promptinit
 
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':completion:*:*:cdr:*:*' menu selection
-
 
 bindkey '^Xi' incremental-complete-word
 
