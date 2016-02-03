@@ -1,9 +1,11 @@
-*-local
-/*_history
-/*dirs
-/bash-lib/
-/zsh-lib/
+/*history
+/zdirs
+/zcompdump*
+/*-lib/
 
+*-local
+
+*.zwc
 *.swp
 *.swo
 
