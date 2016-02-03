@@ -1,0 +1,45 @@
+#!/bin/zsh
+
+# globs
+setopt nullglob extended_glob case_glob
+setopt autocd cdablevars autolist autopushd
+setopt nocorrect nomenucomplete listpacked listtypes bashautolist listambiguous
+setopt markdirs checkjobs
+
+set -N -T
+
+autoload -Uz \
+    zrecompile \
+    relative \
+    zargs \
+    zcalc \
+    zstyle+ \
+    ztodo \
+    bashcompinit \
+    sticky-note \
+    zkbd \
+	incremental-complete-word \
+	zsh-mime-setup zsh-mime-handler \
+    pick-web-browser \
+    nslookup \
+    regexp-replace \
+	chpwd_recent_dirs cdr add-zsh-hook \
+    promptinit \
+	&& :
+
+promptinit
+
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':completion:*:*:cdr:*:*' menu selection
+
+
+bindkey '^Xi' incremental-complete-word
+
+zle -N predict-on
+zle -N predict-off
+bindkey '^X^Z' predict-on
+bindkey '^Z' predict-off
+
+zsh-mime-setup
+alias -s html=pick-web-browser
+

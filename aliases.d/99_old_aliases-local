@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#alias solarsanweb='pushd ~/Projects/solarsanweb; . ./bin/env'
+#alias solarsan='pushd ~/Projects/solarsan; workon solarsan'
+#alias san='solarsanweb'
+alias san='workon solarsanweb'
+
+#alias emagnifigance='pushd ~/Projects/emagnifigance; . ./bin/env'
+alias emag='workon emag'
+
+alias locsol_stor0='ssh root@10.14.38.20'
+alias locsol_stor1='ssh root@10.14.38.11'
+alias locsol_stor2='ssh root@10.14.38.12'
+alias locsol_stor3='ssh root@10.16.38.13'
+alias locsol_stor4='ssh root@10.16.38.14'

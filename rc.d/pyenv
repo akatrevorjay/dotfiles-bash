@@ -1,0 +1,24 @@
+#!/bin/sh
+
+#export PATH="$HOME/.pyenv/shims:$PATH"
+
+## pyenv
+alias pv='pyenv'
+alias activate='pyenv activate'
+#alias deactivate='pyenv deactivate'
+if has_cmd pyenv; then
+    eval "$(pyenv init -)"
+
+    ## virtualenv
+    export PYENV_VIRTUALENV_CACHE_PATH="$CACHES_DIR/pip"
+    if has_cmd pyenv-virtualenv; then
+        eval "$(pyenv virtualenv-init -)"
+    fi
+
+    ## virtualenvwrapper
+    #export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+    if has_cmd pyenv-virtualenvwrapper; then
+        pyenv virtualenvwrapper_lazy
+    fi
+fi
+

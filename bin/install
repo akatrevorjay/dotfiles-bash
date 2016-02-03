@@ -1,0 +1,20 @@
+#!/usr/bin/env sh -e
+: ${SHELL_CONF_DIR:="$HOME/.shell"}
+
+[[ "$1" == "apply" ]] || APPLY=true
+[[ -n "$HOME" ]] || exit 1
+
+ln=$(which gln 2>/dev/null || which ln 2>/dev/null)
+
+for file in $(find "$SHELL_CONF_DIR" -maxdepth 1 -type f \( -not -name '.*' -not -name '_*' -not -name 'rc' \)); do
+    file_base="$(basename "$file")"
+    echo "# -- $file [$file_base]"
+    $DRY $ln -rsfv "$file" "$HOME/.$file_base"
+done
+
+if [[ "$APPLY" == "true" ]]; then
+    echo
+    echo "# Look good? Run like so to apply:"
+    echo "# \$ $0 apply"
+fi
+

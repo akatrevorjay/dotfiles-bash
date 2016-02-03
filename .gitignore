@@ -1,2 +1,9 @@
-history
 *-local
+/*_history
+/*dirs
+/bash-lib/
+/zsh-lib/
+
+*.swp
+*.swo
+

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+function has_cmd() {
+    which "$1" >/dev/null 2>&1
+}

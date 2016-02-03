@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+# history
+setopt hist_ignore_dups share_history inc_append_history extended_history
+

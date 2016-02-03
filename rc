@@ -1,0 +1,62 @@
+#!/bin/sh
+
+SHELL_CONF_DIR="$HOME/.shell"
+
+if [[ -z "$CURRENT_SHELL" ]]; then
+    echo "CURRENT_SHELL is not set!" >&2
+fi
+: ${CURRENT_SHELL:="unknown_shell"}
+
+declare -l SYSTEM="$(uname -s)"
+[[ -n "$SYSTEM" ]] || SYSTEM="unknown_system"
+
+##
+## init
+##
+
+-shell-conf-files() {
+    local delim='::'
+    local -a files
+    local d f
+    for d in "$SHELL_CONF_DIR/"{"",{"$SYSTEM"{,"-$CURRENT_SHELL"},"$CURRENT_SHELL"}-}{rc,completion,aliases}.d; do
+        # Can't rely on nullglob in case we're not on bash/zsh
+        [[ -d "$d" ]] || continue
+
+        for f in "$d"/*; do
+            # Can't rely on nullglob in case we're not on bash/zsh
+            [[ -f "$f" || -h "$f" ]] || continue
+
+            # Only exec if the exec bit is set
+            [[ -x "$f" ]] || continue
+
+            files+=("${f##*/}${delim}$f")
+        done
+    done
+
+	local -a sorted_files
+	IFS=$'\n' sorted_files=($(sort <<<"${files[*]}"))
+
+	ret=()
+	for f in "${sorted_files[@]}"; do
+        [[ -n "$f" ]] || continue
+
+		f="${f#*$delim}"
+		ret+=("$f")
+	done
+}
+
+if [[ ! -d "$SHELL_CONF_DIR" ]]; then
+    echo "SHELL_CONF_DIR=\"$SHELL_CONF_DIR\" does not exist!" >&2
+    return 1
+fi
+
+echo "ShellConf: Init" >&2
+ret=()
+-shell-conf-files
+for f in "${ret[@]}"; do
+    f_rel="${f##$HOME/.shell/}"
+    echo "-- ${f_rel##*/}: $f_rel" >&2
+    . "$f"
+done
+unset ret f f_rel
+

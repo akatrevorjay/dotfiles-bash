@@ -5,7 +5,15 @@
 #shopt -oq posix && return
 [ -z "$PS1" ] && return
 
-## ~/.bash rc.d and completion.d and "-local"s
-for i in "$HOME/.bash/"{rc,completion,aliases}".d/"* "$HOME/.bash/"{rc,completion,aliases}".d-local/"*; do
-    [[ -x "$i" || -h "$i" ]] && . "$i"
-done
+# Set env up
+CURRENT_SHELL="bash"
+
+##
+## Common
+##
+
+#[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+
+## Shell conf
+[ ! -e "$HOME/.shell/rc" ] || . "$HOME/.shell/rc"
+
