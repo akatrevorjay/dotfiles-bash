@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+export HISTFILE="$ZDOTDIR/.zsh_history"
+
 setopt extended_history			# include time in history
 setopt hist_ignore_dups         # no duplicate
 unsetopt hist_ignore_space      # ignore space prefixed commands

@@ -1,4 +1,0 @@
-#!/bin/sh
-export PATH="/usr/local/sbin:/usr/local/opt/ccache/libexec:/usr/local/bin:/usr/local/libexec/gnubin:$PATH"
-export MANPATH="/usr/local/man:/usr/share/man:$MANPATH"
-
