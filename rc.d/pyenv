@@ -1,7 +1,10 @@
 #!/bin/sh
 
 : ${PYENV_ROOT:="$HOME/.pyenv"}
-export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
+
+# This is actually done in 15_path so ~/.bin is always first.
+#export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
+SAVE_PATH="$PATH"
 
 ## pyenv
 alias pv='pyenv'
@@ -23,4 +26,8 @@ if has_cmd pyenv; then
     #export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
     pyenv virtualenvwrapper || :
 fi
+
+# What the fuck pyenv
+export PATH="$SAVE_PATH"
+unset SAVE_PATH
 

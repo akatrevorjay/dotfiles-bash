@@ -1,0 +1,2 @@
+#!/bin/sh
+[ ! -f "$HOME/.fzf.$CURRENT_SHELL" ] || . "$HOME/.fzf.$CURRENT_SHELL"

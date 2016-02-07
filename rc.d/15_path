@@ -1,7 +1,9 @@
 #!/bin/bash
+# TODO Assign this to a stack, use an assoc array to dedupe.
 
 # Set path accordingly
-# $HOME/.cross/bin $HOME/code/android-sdk-linux/tools $HOME/.cabal/bin $HOME/bin $HOME/.bin /usr/lib/ccache
-for p in "$HOME/.bin" "$HOME/.cabal/bin" "$HOME/.local/google_appengine"; do
-        [ -d "$p" ] && export PATH="$p:$PATH"
+# $HOME/.cross/bin $HOME/code/android-sdk-linux/tools $HOME/.cabal/bin $HOME/bin /usr/lib/ccache
+for p in "$HOME/.local/google_appengine" "$HOME/.pyenv/"{bin,shims} "$HOME/.bin"; do
+    [ -d "$p" ] && export PATH="$p:$PATH"
 done
+
