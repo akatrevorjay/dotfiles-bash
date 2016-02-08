@@ -2,8 +2,7 @@
 
 # Set this early just in case it fails before setting this later.
 #ZSH_CACHE_DIR="$SHELL_CONF_DIR/zsh-cache"
-#ZSH_COMPDUMP="$ZSH_CACHE_DIR/zcompdump-${HOST}-${ZSH_VERSION}"
-ZSH_COMPDUMP="$HOME/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
+ZSH_COMPDUMP="$HOME/.zcompdump-${HOST%%.*}-${ZSH_VERSION}"
 
 # Add our local zsh-functions dir
 fpath=("$SHELL_CONF_DIR/zsh-functions" $fpath)
