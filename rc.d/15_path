@@ -1,9 +1,30 @@
 #!/bin/bash
-# TODO Assign this to a stack, use an assoc array to dedupe.
-
 # Set path accordingly
-# $HOME/.cross/bin $HOME/code/android-sdk-linux/tools $HOME/.cabal/bin $HOME/bin /usr/lib/ccache
-for p in "$HOME/.local/google_appengine" "$HOME/.pyenv/"{bin,shims} "$HOME/.bin"; do
-    [ -d "$p" ] && export PATH="$p:$PATH"
-done
+
+# If this is not exported then the functions below will actually remove your PATH.
+export PATH
+
+path_prepend() {
+    # Prepends "$@" to PATH; Does not add a path if it's already there.
+    local i
+    for i in "$@"; do
+        if [[ ":$PATH:" != *":$i:"* ]]; then
+            [[ -z "$PATH" ]] || i+=":"
+            PATH="$i$PATH"
+        fi
+    done
+}
+
+path_append() {
+    # Appends "$@" to PATH; Does not add a path if it's already there.
+    local i
+    for i in "$@"; do
+        if [[ ":$PATH:" != *":$i:"* ]]; then
+            [[ -z "$PATH" ]] || i+=":"
+            PATH="$i$PATH"
+        fi
+    done
+}
+
+path_prepend "$HOME/.bin"
 

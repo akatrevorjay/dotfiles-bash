@@ -1,8 +1,0 @@
-#!/bin/bash
-#export CCACHE_NLEVELS=5
-
-for path in /usr/lib/ccache /usr/local/opt/ccache/libexec; do
-    [[ ! -d "$path" ]] || export PATH="$path:$PATH"
-done
-
-! which distcc >/dev/null 2>&1 || export CCACHE_PREFIX=distcc

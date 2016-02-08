@@ -1,2 +1,2 @@
 #!/bin/sh
-! which -s thefuck || eval $(thefuck --alias)
+! has_cmd thefuck || eval $(thefuck --alias)

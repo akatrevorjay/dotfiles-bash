@@ -8,9 +8,10 @@
 
 #: ${GOENV_ROOT:="~/.goenv"}
 
+path_append "$GOPATH/bin"
+
 export \
     GOPATH \
     GO15VENDOREXPERIMENT=1 \
-    PATH="$PATH:$GOPATH/bin" \
     && :
 

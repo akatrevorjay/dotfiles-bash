@@ -1,0 +1,3 @@
+#!/bin/zsh
+path_prepend "$HOME/.bin"
+
