@@ -1,5 +1,6 @@
 #!/bin/bash
 # Set path accordingly
+# TODO keep track of prepends and appends, rebuild path with that ensured.
 
 # If this is not exported then the functions below will actually remove your PATH.
 export PATH

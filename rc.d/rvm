@@ -1,0 +1,5 @@
+#!/bin/sh
+[[ -d "$HOME/.rvm" ]] || return 0
+
+path_prepend "$HOME/.rvm/bin"
+source "$HOME/.rvm/scripts/rvm"
