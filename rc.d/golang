@@ -1,6 +1,6 @@
 #!/bin/bash
 
-: ${GOPATH:="~/go"}
+: ${GOPATH:="$HOME/go"}
 #: ${GOBIN:="$GOROOT/bin"}
 #: ${GOARCH:="$(uname -m)"}
 #: ${GOOS:="${SYSTEM:-$(uname -s)}"}

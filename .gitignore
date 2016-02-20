@@ -1,3 +1,6 @@
+/trace
+/debug
+
 /*history
 /zdirs
 /zcompdump*
@@ -5,6 +8,9 @@
 /*cache
 
 *-local
+*-local.*
+/zsh-custom/example.zsh
+/zsh-custom/plugins/example/
 
 *.zwc
 *.swp

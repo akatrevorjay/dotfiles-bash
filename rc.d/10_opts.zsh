@@ -8,7 +8,11 @@ ZSH_COMPDUMP="$HOME/.zcompdump-${HOST%%.*}-${ZSH_VERSION}"
 fpath=("$SHELL_CONF_DIR/zsh-functions" $fpath)
 
 # Autoload what's in there
-autoload -U zrecompile-all-in-fpath
+for f in "$SHELL_CONF_DIR/zsh-functions"/*; do
+    [[ -n "$f" ]] || continue
+    [[ "$f" = *.bash ]] || continue
+    autoload -U "$(basename "$f")"
+done
 
 ##
 ## modules
@@ -31,11 +35,11 @@ setopt \
     markdirs checkjobs \
 	interactivecomments
 
-setopt auto_cd                  # if command is a path, cd into it
-setopt auto_remove_slash        # self explicit
+#setopt auto_cd                  # if command is a path, cd into it
+#setopt auto_remove_slash        # self explicit
 #setopt chase_links              # resolve symlinks
 setopt extended_glob            # activate complex pattern globbing
-setopt glob_dots                # include dotfiles in globbing
+#setopt no_glob_dots            # include dotfiles in globbing
 #setopt print_exit_value         # print return value if non-zero
 unsetopt beep                   # no bell on error
 unsetopt bg_nice                # no lower prio for background jobs

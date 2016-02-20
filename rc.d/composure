@@ -1,0 +1,2 @@
+#!/bin/sh
+. "$SHELL_CONF_DIR/repos/composure/composure.sh"

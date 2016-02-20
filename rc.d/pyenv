@@ -24,6 +24,10 @@ if has_cmd pyenv; then
     ## virtualenvwrapper
     #export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
     pyenv virtualenvwrapper || :
+
+    function pyenv_prompt_info() {
+        echo "$(pyenv version-name)"
+    }
 fi
 
 # What the fuck pyenv

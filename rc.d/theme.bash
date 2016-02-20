@@ -7,5 +7,5 @@
 #export POWERLINE_MODE="$"
 
 #. ~/.vim/repos/powerline/powerline/bindings/bash/powerline.sh
-. "$SHELL_CONF_DIR/bash-themes/airline.sh"
+. "$SHELL_CONF_DIR/themes/airline.sh"
 
