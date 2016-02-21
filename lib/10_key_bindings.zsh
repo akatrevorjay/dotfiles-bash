@@ -1,14 +1,16 @@
 #!/bin/zsh
 
-## Load zkbd file if one exists
-f="~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
-if [[ -e "$f" ]]; then
-    source "$f"
-    #[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
-    #[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
-    # etc.
-fi
-unset f
+### Load zkbd file if one exists
+#f="~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
+#if [[ -e "$f" ]]; then
+#    source "$f"
+#    #[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
+#    #[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
+#    # etc.
+#fi
+#unset f
+
+zmodload zsh/terminfo
 
 ##
 ## Enable meta/alt keys
@@ -60,8 +62,12 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
   bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
+# set options
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=magenta,fg=white,bold'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
+HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
+
 # bind UP and DOWN arrow keys
-zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
@@ -140,4 +146,6 @@ bindkey -M emacs '^N' history-substring-search-down
 
 # Like bash
 bindkey "^u" backward-kill-line
+
+
 

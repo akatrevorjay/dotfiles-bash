@@ -70,5 +70,9 @@ __better_man () {
 	esac
 }
 
-alias man=__better_man
+#alias man=__better_man
+
+man() {
+    __better_man "$@"
+}
 

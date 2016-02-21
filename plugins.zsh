@@ -9,7 +9,7 @@ ZSH_CACHE_DIR="$SHELL_CONF_DIR/zsh-cache"
 
 zplug "$SHELL_CONF_DIR/plugins/pyenv", from:local, nice:-5
 #zplug "$SHELL_CONF_DIR/plugins/bash_completion", from:local, nice:-5
-#zplug "$SHELL_CONF_DIR/plugins/better_man", from:local
+zplug "$SHELL_CONF_DIR/plugins/better_man", from:local
 
 zplug "erichs/composure", of:"composure.sh"
 
@@ -26,6 +26,7 @@ zplug "b4b4r07/enhancd", of:enhancd.sh
 #zplug "mollifier/anyframe"
 #zplug "$SHELL_CONF_DIR/plugins/anyframe", from:local
 
+# MUST be AFTER zsh-syntax-highlighting
 zplug "zsh-users/zsh-history-substring-search", nice:16
 
 # Easily cd to gitroot
@@ -70,8 +71,8 @@ zplug "plugins/dirhistory", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/battery", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/bgnotify", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/command-not-found", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/colored-man-pages", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/man", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/colored-man-pages", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/man", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 
 zplug "plugins/python", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/pip", from:oh-my-zsh, ignore:oh-my-zsh.zsh
