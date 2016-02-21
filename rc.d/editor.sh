@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export EDITOR=vim
+export EDITOR=nvim
 
 # mvim does NOT like to be spawned this way, especially with git. Nope.
 ## Preferred editor for local and remote sessions

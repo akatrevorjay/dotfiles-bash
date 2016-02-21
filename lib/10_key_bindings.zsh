@@ -60,6 +60,25 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
   bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 fi
 
+# bind UP and DOWN arrow keys
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# bind UP and DOWN arrow keys (compatibility fallback
+# for Ubuntu 12.04, Fedora 21, and MacOSX 10.9 users)
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# bind P and N for EMACS mode
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+
 if [[ "${terminfo[khome]}" != "" ]]; then
   bindkey "${terminfo[khome]}" beginning-of-line      # [Home] - Go to beginning of line
 fi
@@ -93,29 +112,29 @@ bindkey '\C-x\C-e' edit-command-line
 # file rename magick
 bindkey "^[m" copy-prev-shell-word
 
-## consider emacs keybindings:
-#bindkey -e  ## emacs key bindings
-#
-#bindkey '^[[A' up-line-or-search
-#bindkey '^[[B' down-line-or-search
-#bindkey '^[^[[C' emacs-forward-word
-#bindkey '^[^[[D' emacs-backward-word
-#
-#bindkey -s '^X^Z' '%-^M'
-#bindkey '^[e' expand-cmd-path
-#bindkey '^[^I' reverse-menu-complete
-#bindkey '^X^N' accept-and-infer-next-history
-#bindkey '^W' kill-region
-#bindkey '^I' complete-word
-## Fix weird sequence that rxvt produces
-#bindkey -s '^[[Z' '\t'
+# consider emacs keybindings:
+bindkey -e  ## emacs key bindings
+
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+bindkey '^[^[[C' emacs-forward-word
+bindkey '^[^[[D' emacs-backward-word
+
+bindkey -s '^X^Z' '%-^M'
+bindkey '^[e' expand-cmd-path
+bindkey '^[^I' reverse-menu-complete
+bindkey '^X^N' accept-and-infer-next-history
+bindkey '^W' kill-region
+bindkey '^I' complete-word
+# Fix weird sequence that rxvt produces
+bindkey -s '^[[Z' '\t'
 
 # History completion
-# autoload history-search-end
-# zle -N history-beginning-search-backward-end history-search-end
-# zle -N history-beginning-search-forward-end history-search-end
-# bindkey "^p" history-beginning-search-backward-end
-# bindkey "^n" history-beginning-search-forward-end
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^p" history-beginning-search-backward-end
+bindkey "^n" history-beginning-search-forward-end
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 

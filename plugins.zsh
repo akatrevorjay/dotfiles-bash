@@ -13,19 +13,20 @@ zplug "$SHELL_CONF_DIR/plugins/pyenv", from:local, nice:-5
 
 zplug "erichs/composure", of:"composure.sh"
 
-export ENHANCD_FILTER=fzf:peco:gof
-
 zplug "junegunn/fzf", as:command, of:"bin/fzf*", do:"./install --bin"
 zplug "$SHELL_CONF_DIR/plugins/fzf", from:local
 
-#zplug "b4b4r07/enhancd", of:"enhancd.sh"
+export ENHANCD_FILTER=fzf:peco:gof
+export ENHANCD_COMMAND=ecd
+zplug "b4b4r07/enhancd", of:enhancd.sh
+
 #zplug "b4b4r07/auto-fu.zsh"
 #zplug "$SHELL_CONF_DIR/plugins/auto-fu", from:local
 
 #zplug "mollifier/anyframe"
 #zplug "$SHELL_CONF_DIR/plugins/anyframe", from:local
 
-#zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-history-substring-search", nice:16
 
 # Easily cd to gitroot
 zplug "mollifier/cd-gitroot"
@@ -63,7 +64,7 @@ zplug "plugins/zsh_reload", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/fasd", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/autoenv", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/safe-paste", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/history-substring-search", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/history-substring-search", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/dirpersist", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/dirhistory", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/battery", from:oh-my-zsh, ignore:oh-my-zsh.zsh
