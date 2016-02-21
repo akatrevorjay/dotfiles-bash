@@ -4,21 +4,31 @@
 DISABLE_AUTO_UPDATE="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM="$SHELL_CONF_DIR/zsh-custom"
-ZSH_CACHE_DIR="$SHELL_CONF_DIR/zsh-cache"
+export ZSH_CUSTOM="$SHELL_CONF_DIR/zsh-custom"
+export ZSH_CACHE_DIR="$SHELL_CONF_DIR/zsh-cache"
 
 zplug "$SHELL_CONF_DIR/plugins/pyenv", from:local, nice:-5
 #zplug "$SHELL_CONF_DIR/plugins/bash_completion", from:local, nice:-5
 zplug "$SHELL_CONF_DIR/plugins/better_man", from:local
+
+zplug "$SHELL_CONF_DIR/plugins/utility", from:local, of:"*.zsh"
+zplug "$SHELL_CONF_DIR/plugins/spectrum", from:local, of:"init.zsh"
+zplug "$SHELL_CONF_DIR/plugins/input", from:local, of:"*.zsh"
+zplug "$SHELL_CONF_DIR/plugins/environment", from:local, of:"*.zsh"
+zplug "$SHELL_CONF_DIR/plugins/git", from:local, of:"*.zsh"
+#zplug "$SHELL_CONF_DIR/plugins/debug", from:local, of:"init.zsh"
+
+# Stupid hack to get fpath to work with zplug
+zplug "$SHELL_CONF_DIR/plugins/fix_fpath", from:local, nice:19
 
 zplug "erichs/composure", of:"composure.sh"
 
 zplug "junegunn/fzf", as:command, of:"bin/fzf*", do:"./install --bin"
 zplug "$SHELL_CONF_DIR/plugins/fzf", from:local
 
-export ENHANCD_FILTER=fzf:peco:gof
-export ENHANCD_COMMAND=ecd
-zplug "b4b4r07/enhancd", of:enhancd.sh
+#export ENHANCD_FILTER=fzf:peco:gof
+#export ENHANCD_COMMAND=ecd
+#zplug "b4b4r07/enhancd", of:enhancd.sh
 
 #zplug "b4b4r07/auto-fu.zsh"
 #zplug "$SHELL_CONF_DIR/plugins/auto-fu", from:local
@@ -29,11 +39,11 @@ zplug "b4b4r07/enhancd", of:enhancd.sh
 # MUST be AFTER zsh-syntax-highlighting
 zplug "zsh-users/zsh-history-substring-search", nice:16
 
-# Easily cd to gitroot
-zplug "mollifier/cd-gitroot"
+## Easily cd to gitroot
+#zplug "mollifier/cd-gitroot"
 
-# Easily deal with autoload functions, even hot reload
-zplug "mollifier/zload"
+## Easily deal with autoload functions, even hot reload
+#zplug "mollifier/zload"
 
 ## GitHub-like contribution calendar
 #zplug "k4rthik/git-cal", as:command
@@ -42,7 +52,7 @@ zplug "mollifier/zload"
 fpath+=( \
     "$SHELL_CONF_DIR/zsh-plugged/repos/zsh-users/zsh-completions/src" \
 )
-zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-completions", nice:17
 
 ## Add history-substring-search-* widgets to list of widgets that clear the autosuggestion
 #ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
@@ -55,20 +65,21 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 zplug "zsh-users/zsh-syntax-highlighting", nice:15
 
 #ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
-#zplug "jimmijj/chromatic-zsh", nice:15
+#ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
+#zplug "jimmijj/chromatic-zsh", of:chromatic-zsh.zsh, nice:15
 
 ##
 ## OMZ plugins
 ##
 
-zplug "plugins/zsh_reload", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/zsh_reload", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/fasd", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/autoenv", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/safe-paste", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/history-substring-search", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/dirpersist", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/dirhistory", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/battery", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/battery", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/bgnotify", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/command-not-found", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/colored-man-pages", from:oh-my-zsh, ignore:oh-my-zsh.zsh
