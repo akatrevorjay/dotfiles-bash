@@ -9,8 +9,7 @@
 
 *-local
 *-local.*
-/zsh-custom/example.zsh
-/zsh-custom/plugins/example/
+/zsh-plugged
 
 *.zwc
 *.swp

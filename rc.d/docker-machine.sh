@@ -1,3 +1,4 @@
 #!/bin/sh
-export DOCKER_MACHINE_NAME=dev
+: ${DOCKER_MACHINE_NAME:="dev"}
+export DOCKER_MACHINE_NAME
 
