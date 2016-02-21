@@ -54,8 +54,8 @@ zstyle ':completion::complete:*' cache-path "$ZSH_CACHE_DIR"
 #compdef _gnu_generic gcc
 #compdef _gnu_generic gdb
 
-# should this be in keybindings?
-bindkey -M menuselect '^o' accept-and-infer-next-history
+## should this be in keybindings?
+#bindkey -M menuselect '^o' accept-and-infer-next-history
 
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
@@ -116,18 +116,18 @@ fi
 #fpath=(${0:h}/external/src ${fpath})
 
 # load and initialize the completion system
-autoload -Uz compinit && compinit -C -d ${ZDOTDIR:-${HOME}}/.zcompdump
+#autoload -Uz compinit && compinit -C -d ${ZDOTDIR:-${HOME}}/.zcompdump
 
-{
-  # zcomple the .zcompdump in the background
-  zcompdump=${ZDOTDIR:-${HOME}}/.zcompdump
+#{
+#  # zcomple the .zcompdump in the background
+#  zcompdump=${ZDOTDIR:-${HOME}}/.zcompdump
 
-  if [[ -s ${zcompdump} && ( ! -s ${zcompdump}.zwc || ${zcompdump} -nt ${zcompdump}.zwc) ]]; then
-    zcompile ${zcompdump}
-  fi
+#  if [[ -s ${zcompdump} && ( ! -s ${zcompdump}.zwc || ${zcompdump} -nt ${zcompdump}.zwc) ]]; then
+#    zcompile ${zcompdump}
+#  fi
   
-  unset zcompdump
-} &!
+#  unset zcompdump
+#} &!
 
 
 #
