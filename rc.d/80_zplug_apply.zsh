@@ -16,8 +16,8 @@
 # Then, source plugins and add commands to $PATH
 #zplug load --verbose
 
-verbose="--verbose"
-zplug check $verbose || zplug install $verbose
-zplug load $verbose
+#verbose="--verbose"
+#zplug check $verbose || zplug install $verbose
+#zplug load $verbose
 
 

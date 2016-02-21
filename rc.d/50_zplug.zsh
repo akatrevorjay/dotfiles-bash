@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-export ZPLUG_HOME="$SHELL_CONF_DIR/zsh-plugged"
+#export ZPLUG_HOME="$SHELL_CONF_DIR/zsh-plugged"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
@@ -8,14 +8,14 @@ DISABLE_AUTO_UPDATE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM="$SHELL_CONF_DIR/zsh-custom"
 
-. "$SHELL_CONF_DIR/zsh-plugged/repos/b4b4r07/zplug/zplug"
+#. "$SHELL_CONF_DIR/zsh-plugged/repos/b4b4r07/zplug/zplug"
 
-zplug "b4b4r07/zplug"
+zplug "b4b4r07/zplug", of:zplug
 
 export ENHANCD_FILTER=fzf:peco:gof
 #export ENHANCD_DIR="$SHELL_CONF_DIR/.enhancd"
 
-zplug "b4b4r07/enhancd", of:enhancd.sh
+zplug "b4b4r07/enhancd", of:enhancd.sh, nice:1
 
 #zplug "$SHELL_CONF_DIR/zsh-custom", from:local
 zplug "$SHELL_CONF_DIR/zsh-custom/plugins/pyenv", from:local
@@ -24,7 +24,12 @@ zplug "$SHELL_CONF_DIR/zsh-custom/plugins/pyenv", from:local
 ## and rename to use "file:" tag
 zplug "junegunn/fzf", \
     as:command, \
-    file:fzf
+    file:fzf, \
+    nice: 0
+
+zplug "mollifier/anyframe"
+
+zplug "erichs/composure", of:composure.sh
 
 zplug "zsh-users/zsh-history-substring-search"
 
