@@ -27,5 +27,3 @@ path_append() {
     done
 }
 
-path_prepend "$HOME/.bin"
-

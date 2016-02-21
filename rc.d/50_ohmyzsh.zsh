@@ -60,6 +60,9 @@ plugins=( \
     zsh_reload \
     fasd \
     autoenv \
+    zsh-autosuggestions \
+    # bracketed paste mode \
+    safe-paste \
     \
     python \
     pip \
@@ -76,7 +79,7 @@ plugins=( \
     battery \
     command-not-found \
     bgnotify \
-    colored-man-pages \
+    #colored-man-pages \
     command-not-found \
     #common-aliases \
     man \
@@ -88,4 +91,10 @@ plugins=( \
     #docker-compose \
     #redis-cli \
 )
+
+# Add history-substring-search-* widgets to list of widgets that clear the autosuggestion
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
+
+# Bind accept autosuggest to ctrl+space
+#bindkey '^ ' autosuggest-accept
 

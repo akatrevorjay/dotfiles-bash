@@ -17,7 +17,8 @@ alias dfh='df -h'
 
 alias nobyobu='export LC_BYOBU=0'
 
-alias rehash='hash -r'
+alias rehash='which pyenv >/dev/null 2>&1 && pyenv rehash; hash -r'
+
 #alias free='free -mt'
 alias idle='nice -n19 ionice -c3'
 

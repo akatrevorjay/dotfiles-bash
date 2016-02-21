@@ -34,5 +34,3 @@ fi
 autoload -Uz shellconf-init
 shellconf-init
 
-
-test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
