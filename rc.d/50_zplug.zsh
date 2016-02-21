@@ -43,6 +43,9 @@ zplug "tarruda/zsh-autosuggestions", nice:9
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
 
+#ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+#zplug "jimmijj/chromatic-zsh", nice:10
+
 #zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/git-extras", from:oh-my-zsh
 zplug "plugins/git-flow-avh", from:oh-my-zsh
