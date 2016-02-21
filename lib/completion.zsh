@@ -1,11 +1,10 @@
-# fixme - the load process here seems a bit bizarre
+
 
 #unsetopt menu_complete   # do not autoselect the first completion entry
 #unsetopt flowcontrol
 #setopt auto_menu         # show completion menu on succesive tab press
 #setopt complete_in_word
 #setopt always_to_end
-
 #WORDCHARS=''
 
 #zmodload -i zsh/complist
@@ -23,7 +22,37 @@
 #  fi
 #fi
 
+##
+## completion
+##
+
+# Use caching so that commands like apt and dpkg complete are useable
+zstyle ':completion::complete:*' use-cache on                 # completion caching, use rehash to clear
+zstyle ':completion::complete:*' cache-path "$ZSH_CACHE_DIR"
+
+#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'     # ignore case
+#zstyle ':completion:*' menu select=2                          # menu if nb items > 2
+#zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}         # colorz !
 #zstyle ':completion:*' list-colors ''
+#zstyle ':completion:*::::' completer _expand _complete _ignored _approximate # list of completers to use
+
+# sections completion !
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format $'\e[00;34m%d'
+zstyle ':completion:*:messages' format $'\e[00;31m%d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:manuals' separate-sections true
+
+#zstyle ':completion:*:processes' command 'ps -au$USER'
+#zstyle ':completion:*:*:kill:*' menu yes select
+#zstyle ':completion:*:kill:*' force-list always
+#zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=29=34"
+#zstyle ':completion:*:*:killall:*' menu yes select
+#zstyle ':completion:*:killall:*' force-list always
+
+###generic completion with --help
+#compdef _gnu_generic gcc
+#compdef _gnu_generic gdb
 
 # should this be in keybindings?
 bindkey -M menuselect '^o' accept-and-infer-next-history
@@ -39,10 +68,6 @@ fi
 
 ## disable named-directories autocompletion
 #zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
-
-# Use caching so that commands like apt and dpkg complete are useable
-zstyle ':completion::complete:*' use-cache 1
-zstyle ':completion::complete:*' cache-path $ZSH_CACHE_DIR
 
 ## Don't complete uninteresting users
 #zstyle ':completion:*:*:*:users' ignored-patterns \

@@ -30,7 +30,8 @@ zmodload zsh/attr zsh/clone zsh/compctl zsh/computil zsh/datetime \
 
 setopt \
     nullglob extended_glob case_glob \
-    nomenucomplete listpacked listtypes
+    nomenucomplete listpacked listtypes \
+    globstarshort globcomplete braceccl kshglob braceexpand extendedglob
 
 ## jobs
 setopt checkjobs
@@ -114,6 +115,10 @@ autoload -Uz \
 ## prompt
 promptinit
 
+## mime
+zsh-mime-setup
+alias -s html=pick-web-browser
+
 ## cdr
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':completion:*:*:cdr:*:*' menu selection
@@ -126,38 +131,4 @@ zle -N predict-on
 zle -N predict-off
 bindkey '^X^Z' predict-on
 bindkey '^Z' predict-off
-
-## mime
-zsh-mime-setup
-alias -s html=pick-web-browser
-
-##
-## completion
-##
-
-zstyle ':completion::complete:*' use-cache on                 # completion caching, use rehash to clear
-zstyle ':completion:*' cache-path "$SHELL_CONF_DIR/.zcompcache" # cache path
-
-#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'     # ignore case
-#zstyle ':completion:*' menu select=2                          # menu if nb items > 2
-#zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}         # colorz !
-#zstyle ':completion:*::::' completer _expand _complete _ignored _approximate # list of completers to use
-
-# sections completion !
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*:descriptions' format $'\e[00;34m%d'
-zstyle ':completion:*:messages' format $'\e[00;31m%d'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*:manuals' separate-sections true
-
-#zstyle ':completion:*:processes' command 'ps -au$USER'
-#zstyle ':completion:*:*:kill:*' menu yes select
-#zstyle ':completion:*:kill:*' force-list always
-#zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=29=34"
-#zstyle ':completion:*:*:killall:*' menu yes select
-#zstyle ':completion:*:killall:*' force-list always
-
-###generic completion with --help
-#compdef _gnu_generic gcc
-#compdef _gnu_generic gdb
 
