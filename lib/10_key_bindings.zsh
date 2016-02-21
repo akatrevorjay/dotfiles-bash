@@ -1,3 +1,23 @@
+#!/bin/zsh
+
+## Load zkbd file if one exists
+f="~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}"
+if [[ -e "$f" ]]; then
+    source "$f"
+    #[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
+    #[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
+    # etc.
+fi
+unset f
+
+##
+## Enable meta/alt keys
+##
+
+unsetopt multibyte
+# Enable zle binds
+bindkey -m 2>/dev/null
+
 # http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
 # http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Zle-Builtins
 # http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html#Standard-Widgets
@@ -73,8 +93,7 @@ bindkey '\C-x\C-e' edit-command-line
 # file rename magick
 bindkey "^[m" copy-prev-shell-word
 
-# consider emacs keybindings:
-
+## consider emacs keybindings:
 #bindkey -e  ## emacs key bindings
 #
 #bindkey '^[[A' up-line-or-search
@@ -90,4 +109,16 @@ bindkey "^[m" copy-prev-shell-word
 #bindkey '^I' complete-word
 ## Fix weird sequence that rxvt produces
 #bindkey -s '^[[Z' '\t'
-#
+
+# History completion
+# autoload history-search-end
+# zle -N history-beginning-search-backward-end history-search-end
+# zle -N history-beginning-search-forward-end history-search-end
+# bindkey "^p" history-beginning-search-backward-end
+# bindkey "^n" history-beginning-search-forward-end
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+# Like bash
+bindkey "^u" backward-kill-line
+

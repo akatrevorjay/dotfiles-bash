@@ -134,8 +134,6 @@ alias -s html=pick-web-browser
 ##
 ## completion
 ##
-autoload -Uz bashcompinit
-bashcompinit
 
 zstyle ':completion::complete:*' use-cache on                 # completion caching, use rehash to clear
 zstyle ':completion:*' cache-path "$SHELL_CONF_DIR/.zcompcache" # cache path
