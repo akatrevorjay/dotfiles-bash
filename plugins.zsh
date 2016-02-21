@@ -22,8 +22,11 @@ export ENHANCD_FILTER=fzf:peco:gof
 
 zplug "junegunn/fzf", as:command, of:"bin/fzf*", do:"./install --bin"
 zplug "$SHELL_CONF_DIR/plugins/fzf", from:local
+
 #zplug "b4b4r07/enhancd", of:"enhancd.sh"
-zplug "mollifier/anyframe"
+
+#zplug "mollifier/anyframe"
+#zplug "$SHELL_CONF_DIR/plugins/anyframe", from:local
 
 zplug "zsh-users/zsh-history-substring-search"
 
