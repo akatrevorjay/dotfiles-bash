@@ -9,10 +9,10 @@ path_prepend() {
     # Prepends "$@" to PATH; Does not add a path if it's already there.
     local i
     for i in "$@"; do
-        if [[ ":$PATH:" != *":$i:"* ]]; then
+        #if [[ ":$PATH:" != *":$i:"* ]]; then
             [[ -z "$PATH" ]] || i+=":"
             PATH="$i$PATH"
-        fi
+        #fi
     done
 }
 
@@ -20,10 +20,10 @@ path_append() {
     # Appends "$@" to PATH; Does not add a path if it's already there.
     local i
     for i in "$@"; do
-        if [[ ":$PATH:" != *":$i:"* ]]; then
+        #if [[ ":$PATH:" != *":$i:"* ]]; then
             [[ -z "$PATH" ]] || i+=":"
             PATH="$i$PATH"
-        fi
+        #fi
     done
 }
 

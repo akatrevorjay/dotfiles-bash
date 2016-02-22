@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+
+# TODO SWITCH TO ZPLUGIN -- It's the superior choice here.
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
 
@@ -16,6 +19,7 @@ zplug "$SHELL_CONF_DIR/plugins/spectrum", from:local
 zplug "$SHELL_CONF_DIR/plugins/input", from:local
 zplug "$SHELL_CONF_DIR/plugins/environment", from:local
 zplug "$SHELL_CONF_DIR/plugins/git", from:local
+#zplug "$SHELL_CONF_DIR/plugins/tmux", from:local
 #zplug "$SHELL_CONF_DIR/plugins/debug", from:local, of:"init.zsh"
 
 # Stupid hack to get fpath to work with zplug
@@ -25,6 +29,18 @@ zplug "erichs/composure", of:"*.sh"
 
 zplug "junegunn/fzf", as:command, of:"bin/fzf*", do:"./install --bin"
 zplug "$SHELL_CONF_DIR/plugins/fzf", from:local
+
+# Session save/restore
+zplug 'psprint/zsnapshot'
+
+# EasyMotion for ZSH
+#zplug 'hchbaw/zce.zsh'
+
+# Nice curses interface to certain completions and navigations
+#zplug 'psprint/zsh-navigation-tools'
+
+# Inject emoji as part of tab title according to running app
+#zplug 'the8/terminal-app.zsh'
 
 #export ENHANCD_FILTER=fzf:peco:gof
 #export ENHANCD_COMMAND=ecd
@@ -49,8 +65,15 @@ zplug "zsh-users/zsh-history-substring-search", nice:16
 #zplug "k4rthik/git-cal", as:command
 
 # zsh-completions
-fpath+=("$SHELL_CONF_DIR/zsh-plugged/repos/zsh-users/zsh-completions/src")
 zplug "zsh-users/zsh-completions", of:"*.zsh", nice:8
+fpath+=("$SHELL_CONF_DIR/zsh-plugged/repos/zsh-users/zsh-completions/src")
+
+# zsh-hooks
+#zplug 'willghatch/zsh-hooks'
+
+# zsh-completion-generator (getopts-style help parser)
+#GENCOMPL_FPATH = $SHELLCONFDIR/zsh-cache/gencomplete
+#zplug 'RobSis/zsh-completion-generator'
 
 ## Add history-substring-search-* widgets to list of widgets that clear the autosuggestion
 #ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
@@ -66,12 +89,21 @@ zplug "zsh-users/zsh-syntax-highlighting", nice:15
 #ZSH_HIGHLIGHT_HIGHLIGHTERS=(main)
 #zplug "jimmijj/chromatic-zsh", of:chromatic-zsh.zsh, nice:15
 
+# Wakatime integration
+zplug 'wbinglee/zsh-wakatime'
+
+# Easy venv per utility app
+#zplug 'sharat87/pip-app'
+
 ##
 ## Themes
 ##
 
 #zplug "simnalamburt/shellder"
-
+#zplug 'nojhan/liquidprompt'
+#zplug 'arialdomartini/oh-my-git'
+#zplug 'arialdomartini/oh-my-git-themes'
+#zplug 'caiogondim/bullet-train-oh-my-zsh-theme'
 
 ##
 ## OMZ plugins
@@ -97,6 +129,7 @@ zplug "plugins/pip", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/autopep8", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/pep8", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/pylint", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+
 
 #zplug "plugins/git", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/git-extras", from:oh-my-zsh, ignore:oh-my-zsh.zsh
