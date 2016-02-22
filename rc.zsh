@@ -1,7 +1,6 @@
 # Purposefully no shebang.
 
 # Mark that we're during init
-export __SHELL_CONF_INIT=true
 
 : "${SHELL_CONF_DIR:="$HOME/.shell"}"
 
@@ -24,31 +23,26 @@ shellconf-zplug-setup() {
         mkdir -p "$zplug_repo_dir/../"
         git clone https://github.com/b4b4r07/zplug.git "$zplug_repo_dir"
     fi
-
-    # Need these for those nasty globs below.
-    setopt extended_glob kshglob
-
-    # Source zplug, also keep it up to date.
-    . "$ZPLUG_HOME/repos/b4b4r07/zplug/zplug"
-    zplug "b4b4r07/zplug"
 }
 
 shellconf-zplug-apply() {
     local verbose=""
     [[ -z "$DEBUG" ]] || verbose="--verbose"
+    # Source zplug, also keep it up to date.
+    zplug "b4b4r07/zplug"
     zplug check $verbose || zplug install $verbose
     zplug load $verbose
 }
 
 shellconf-init() {
+    local __SHELL_CONF_INIT=true
+    export __SHELL_CONF_INIT_GLOBAL=true
     debug "ShellConf: Init"
 
     if [ ! -d "$SHELL_CONF_DIR" ]; then
         error "SHELL_CONF_DIR=\"$SHELL_CONF_DIR\" does not exist"
         return 1
     fi
-
-    shellconf-zplug-setup
 
     # Base shellconf structure that's extremely ugly in glob form.
     # This wasn't originally a glob, nor was this using zplug.
@@ -61,9 +55,13 @@ shellconf-init() {
     . "$SHELL_CONF_DIR/plugins.zsh"
 
     shellconf-zplug-apply
+    unset __SHELL_CONF_INIT_GLOBAL
 }
 
+# Need these for those nasty globs below.
+setopt extended_glob kshglob
 
-unset __SHELL_CONF_INIT
+shellconf-zplug-setup
+. "$ZPLUG_HOME/repos/b4b4r07/zplug/zplug"
 
 # vim: set ts=4 sw=4 tw=0 ft=sh et :

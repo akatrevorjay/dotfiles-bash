@@ -9,7 +9,7 @@ export ZSH_CACHE_DIR="$SHELL_CONF_DIR/zsh-cache"
 
 zplug "$SHELL_CONF_DIR/plugins/pyenv", from:local, nice:-5
 #zplug "$SHELL_CONF_DIR/plugins/bash_completion", from:local, nice:-5
-zplug "$SHELL_CONF_DIR/plugins/better_man", from:local
+#zplug "$SHELL_CONF_DIR/plugins/better_man", from:local
 
 zplug "$SHELL_CONF_DIR/plugins/utility", from:local, of:"*.zsh"
 zplug "$SHELL_CONF_DIR/plugins/spectrum", from:local, of:"init.zsh"
@@ -21,7 +21,7 @@ zplug "$SHELL_CONF_DIR/plugins/git", from:local, of:"*.zsh"
 # Stupid hack to get fpath to work with zplug
 zplug "$SHELL_CONF_DIR/plugins/fix_fpath", from:local, nice:19
 
-zplug "erichs/composure", of:"composure.sh"
+zplug "erichs/composure", of:"*.sh"
 
 zplug "junegunn/fzf", as:command, of:"bin/fzf*", do:"./install --bin"
 zplug "$SHELL_CONF_DIR/plugins/fzf", from:local
@@ -49,10 +49,8 @@ zplug "zsh-users/zsh-history-substring-search", nice:16
 #zplug "k4rthik/git-cal", as:command
 
 # zsh-completions
-fpath+=( \
-    "$SHELL_CONF_DIR/zsh-plugged/repos/zsh-users/zsh-completions/src" \
-)
-zplug "zsh-users/zsh-completions", nice:17
+fpath+=("$SHELL_CONF_DIR/zsh-plugged/repos/zsh-users/zsh-completions/src")
+zplug "zsh-users/zsh-completions", of:"*.zsh", nice:8
 
 ## Add history-substring-search-* widgets to list of widgets that clear the autosuggestion
 #ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
@@ -69,13 +67,20 @@ zplug "zsh-users/zsh-syntax-highlighting", nice:15
 #zplug "jimmijj/chromatic-zsh", of:chromatic-zsh.zsh, nice:15
 
 ##
+## Themes
+##
+
+#zplug "simnalamburt/shellder"
+
+
+##
 ## OMZ plugins
 ##
 
 #zplug "plugins/zsh_reload", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/fasd", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/autoenv", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/safe-paste", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/safe-paste", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/history-substring-search", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/dirpersist", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/dirhistory", from:oh-my-zsh, ignore:oh-my-zsh.zsh
