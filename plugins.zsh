@@ -11,11 +11,11 @@ zplug "$SHELL_CONF_DIR/plugins/pyenv", from:local, nice:-5
 #zplug "$SHELL_CONF_DIR/plugins/bash_completion", from:local, nice:-5
 #zplug "$SHELL_CONF_DIR/plugins/better_man", from:local
 
-zplug "$SHELL_CONF_DIR/plugins/utility", from:local, of:"*.zsh"
-zplug "$SHELL_CONF_DIR/plugins/spectrum", from:local, of:"init.zsh"
-zplug "$SHELL_CONF_DIR/plugins/input", from:local, of:"*.zsh"
-zplug "$SHELL_CONF_DIR/plugins/environment", from:local, of:"*.zsh"
-zplug "$SHELL_CONF_DIR/plugins/git", from:local, of:"*.zsh"
+zplug "$SHELL_CONF_DIR/plugins/utility", from:local
+zplug "$SHELL_CONF_DIR/plugins/spectrum", from:local
+zplug "$SHELL_CONF_DIR/plugins/input", from:local
+zplug "$SHELL_CONF_DIR/plugins/environment", from:local
+zplug "$SHELL_CONF_DIR/plugins/git", from:local
 #zplug "$SHELL_CONF_DIR/plugins/debug", from:local, of:"init.zsh"
 
 # Stupid hack to get fpath to work with zplug
