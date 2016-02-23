@@ -1,11 +1,10 @@
-#!/bin/zsh
 
 ## Set this early just in case it fails before setting this later.
 ##ZSH_CACHE_DIR="$SHELL_CONF_DIR/zsh-cache"
 #ZSH_COMPDUMP="$HOME/.zcompdump-${HOST%%.*}-${ZSH_VERSION}"
 
 ## Add our local zsh-functions dir
-#fpath=("$SHELL_CONF_DIR/zsh-functions" $fpath)
+typeset -Uga fpath=("$SHELL_CONF_DIR/zsh-functions" $fpath[@])
 
 ## Autoload what's in there
 #for f in "$SHELL_CONF_DIR/zsh-functions"/*; do
@@ -60,7 +59,6 @@ setopt auto_cd                  # if command is a path, cd into it
 #setopt auto_remove_slash        # self explicit
 #setopt chase_links              # resolve symlinks
 setopt extended_glob            # activate complex pattern globbing
-#setopt no_glob_dots            # include dotfiles in globbing
 #setopt print_exit_value         # print return value if non-zero
 unsetopt beep                   # no bell on error
 unsetopt bg_nice                # no lower prio for background jobs
@@ -76,23 +74,6 @@ setopt auto_pushd               # make cd push old dir in dir stack
 setopt pushd_ignore_dups        # no duplicates in dir stack
 setopt pushd_silent             # no dir stack after pushd or popd
 setopt pushd_to_home            # `pushd` = `pushd $HOME`
-
-## Load smart urls if available
-# bracketed-paste-magic is known buggy in zsh 5.1.1 (only), so skip it there; see #4434
-autoload -Uz is-at-least
-if [[ $ZSH_VERSION != 5.1.1 ]]; then
-  for d in $fpath; do
-  	if [[ -e "$d/url-quote-magic" ]]; then
-  		if is-at-least 5.1; then
-  			autoload -Uz bracketed-paste-magic
-  			zle -N bracketed-paste bracketed-paste-magic
-  		fi
-  		autoload -Uz url-quote-magic
-  		zle -N self-insert url-quote-magic
-      break
-  	fi
-  done
-fi
 
 autoload -Uz \
     zrecompile \

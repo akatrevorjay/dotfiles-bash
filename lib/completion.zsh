@@ -29,6 +29,7 @@
 # Use caching so that commands like apt and dpkg complete are useable
 zstyle ':completion::complete:*' use-cache on                 # completion caching, use rehash to clear
 zstyle ':completion::complete:*' cache-path "$ZSH_CACHE_DIR"
+zstyle ':completion:*' rehash true  # auto rehash
 
 #zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'     # ignore case
 #zstyle ':completion:*' menu select=2                          # menu if nb items > 2

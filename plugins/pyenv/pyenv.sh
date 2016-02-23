@@ -1,5 +1,3 @@
-#!/bin/sh
-
 : ${PYENV_ROOT:="$HOME/.pyenv"}
 
 path_prepend "$PYENV_ROOT/bin" "$PYENV_ROOT/shims"

@@ -3,7 +3,7 @@
 ## Profiling
 #[[ -z "$ZSH_PROFILE_RC" ]] || which zmodload >&/dev/null && zmodload zsh/zprof
 
-export SHELL_CONF_DIR="$HOME/.shell"
+SHELL_CONF_DIR="$HOME/.shell"
 
 # Tell ZSH and friends that this is where to look for dotfiles
 #ZDOTDIR="$SHELL_CONF_DIR"
@@ -15,6 +15,8 @@ ZSH_ZWC="$ZDOTDIR/.zshrc.zwc"
 
 # Set env up
 CURRENT_SHELL="$ZSH_NAME"
+
+export SHELL_CONF_DIR
 
 ##
 ## Common

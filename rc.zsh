@@ -4,7 +4,12 @@
 
 : "${SHELL_CONF_DIR:="$HOME/.shell"}"
 
-export SHELL_CONF_DIR
+: "${ZPLUG_HOME:="$SHELL_CONF_DIR/zsh-plugged"}"
+: "${ZPLUG_REPO:="b4b4r07/zplug"}"
+
+export SHELL_CONF_DIR ZPLUG_HOME ZPLUG_REPO
+
+zplug_repo_dir="$ZPLUG_HOME/repos/$ZPLUG_REPO"
 
 [[ ! -f "$SHELL_CONF_DIR/debug" ]] || DEBUG=true
 [[ ! -f "$SHELL_CONF_DIR/verbose" ]] || set -v
@@ -13,12 +18,8 @@ export SHELL_CONF_DIR
 . "$SHELL_CONF_DIR/lib.sh"
 
 shellconf-zplug-setup() {
-    : ${ZPLUG_HOME:="$SHELL_CONF_DIR/zsh-plugged"}
-    export ZPLUG_HOME
-
     # Ensure zplug is available.
     # Check if zplug is installed
-    local zplug_repo_dir="$ZPLUG_HOME/repos/b4b4r07/zplug"
     if [[ ! -d "$zplug_repo_dir" ]]; then
         mkdir -p "$zplug_repo_dir/../"
         git clone https://github.com/b4b4r07/zplug.git "$zplug_repo_dir"
@@ -49,10 +50,13 @@ shellconf-init() {
     # Should look into cleaning this up at a future date.
     zplug "$SHELL_CONF_DIR", from:local, of:"(lib|rc.d)/+(^[./])+(.darwin|.$CURRENT_SHELL|.sh)(#q*)", nice:-15
     zplug "$SHELL_CONF_DIR", from:local, of:"(aliases.d|completion.d)/+(^[./])+(.darwin|.$CURRENT_SHELL|.sh)(#q*)"
-    zplug "$SHELL_CONF_DIR", from:local, of:"(final.d)/+(^[./])+(.darwin|.$CURRENT_SHELL|.sh)(#q*)", nice: 15
 
     # Shellconf ZSH plugins
-    . "$SHELL_CONF_DIR/plugins.zsh"
+    for f in "$SHELL_CONF_DIR/plugins"+(.$SYSTEM|.$CURRENT_SHELL); do
+        . "$f"
+    done
+
+    zplug "$SHELL_CONF_DIR", from:local, of:"(final.d)/+(^[./])+(.darwin|.$CURRENT_SHELL|.sh)(#q*)", nice: 15
 
     shellconf-zplug-apply
     unset __SHELL_CONF_INIT_GLOBAL
@@ -62,6 +66,7 @@ shellconf-init() {
 setopt extended_glob kshglob
 
 shellconf-zplug-setup
-. "$ZPLUG_HOME/repos/b4b4r07/zplug/zplug"
+. "$zplug_repo_dir/zplug"
+
 
 # vim: set ts=4 sw=4 tw=0 ft=sh et :

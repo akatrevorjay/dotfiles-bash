@@ -19,7 +19,8 @@ zplug "$SHELL_CONF_DIR/plugins/spectrum", from:local
 zplug "$SHELL_CONF_DIR/plugins/input", from:local
 zplug "$SHELL_CONF_DIR/plugins/environment", from:local
 zplug "$SHELL_CONF_DIR/plugins/git", from:local
-#zplug "$SHELL_CONF_DIR/plugins/tmux", from:local
+zplug "$SHELL_CONF_DIR/plugins/tmux", from:local
+zplug "$SHELL_CONF_DIR/plugins/custom-terminfo", from:local
 #zplug "$SHELL_CONF_DIR/plugins/debug", from:local, of:"init.zsh"
 
 # Stupid hack to get fpath to work with zplug
