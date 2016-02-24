@@ -25,7 +25,8 @@ zplug "$SHELL_CONF_DIR/plugins/custom-terminfo", from:local
 # Stupid hack to get fpath to work with zplug
 zplug "$SHELL_CONF_DIR/plugins/fix_fpath", from:local, nice:19
 
-zplug 'erichs/composure', of:'{composure.sh,c_extras.sh}'
+#zplug 'erichs/composure', of:'{composure.sh,c_extras.sh}'
+zplug 'erichs/composure', of:'*.sh'
 
 zplug "junegunn/fzf", as:command, of:"bin/fzf*", do:"./install --bin"
 zplug "$SHELL_CONF_DIR/plugins/fzf", from:local
