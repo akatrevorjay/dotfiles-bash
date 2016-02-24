@@ -1,10 +1,10 @@
 #!/bin/sh
 
-# make less more friendly for non-text input files, see lesspipe(1)
-for lesspipe in lesspipe lesspipe.sh; do
-    has_cmd "$lesspipe" || continue
-    eval "$("$lesspipe")"
-done
+## make less more friendly for non-text input files, see lesspipe(1)
+#for lesspipe in lesspipe lesspipe.sh; do
+#    has_cmd "$lesspipe" || continue
+#    eval "$("$lesspipe")"
+#done
 
 ## pager
 #export PAGER="m"

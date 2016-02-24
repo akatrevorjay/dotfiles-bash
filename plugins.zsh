@@ -35,10 +35,10 @@ zplug "$SHELL_CONF_DIR/plugins/fzf", from:local
 zplug 'psprint/zsnapshot'
 
 # EasyMotion for ZSH
-zplug 'hchbaw/zce.zsh'
+#zplug 'hchbaw/zce.zsh'
 
 # Nice curses interface to certain completions and navigations
-zplug 'psprint/zsh-navigation-tools'
+#zplug 'psprint/zsh-navigation-tools'
 
 # Inject emoji as part of tab title according to running app
 zplug 'the8/terminal-app.zsh'
@@ -54,7 +54,8 @@ zplug 'the8/terminal-app.zsh'
 #zplug "$SHELL_CONF_DIR/plugins/anyframe", from:local
 
 # MUST be AFTER zsh-syntax-highlighting
-zplug "zsh-users/zsh-history-substring-search", nice:16
+#zplug "zsh-users/zsh-history-substring-search", nice:16
+zplug "zsh-users/zsh-history-substring-search"  #, nice:16
 
 ## Easily cd to gitroot
 #zplug "mollifier/cd-gitroot"
@@ -66,15 +67,15 @@ zplug "mollifier/zload"
 #zplug "k4rthik/git-cal", as:command
 
 # zsh-completions
-zplug "zsh-users/zsh-completions", of:"*.zsh", nice:8
+zplug "zsh-users/zsh-completions", of:"*.zsh"  #, nice:8
 fpath+=("$SHELL_CONF_DIR/zsh-plugged/repos/zsh-users/zsh-completions/src")
 
 ## zsh-hooks
 #zplug 'willghatch/zsh-hooks'
 
-# zsh-completion-generator (getopts-style help parser)
-GENCOMPL_FPATH="$SHELL_CONF_DIR/zsh-cache/gencomplete"
-zplug 'RobSis/zsh-completion-generator'
+## zsh-completion-generator (getopts-style help parser)
+#GENCOMPL_FPATH="$SHELL_CONF_DIR/zsh-cache/gencomplete"
+#zplug 'RobSis/zsh-completion-generator'
 
 ## Add history-substring-search-* widgets to list of widgets that clear the autosuggestion
 #ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
@@ -97,7 +98,7 @@ zplug 'wbinglee/zsh-wakatime'
 zplug 'sharat87/pip-app'
 
 # Auto-source .env files in dir
-zplug 'kennethreitz/autoenv'
+zplug 'kennethreitz/autoenv', nice:-5
 
 ##
 ## Themes
@@ -119,7 +120,7 @@ zplug "plugins/fasd", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/safe-paste", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/history-substring-search", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/dirpersist", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/dirhistory", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/dirhistory", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/battery", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/bgnotify", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/command-not-found", from:oh-my-zsh, ignore:oh-my-zsh.zsh

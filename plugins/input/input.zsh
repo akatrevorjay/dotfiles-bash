@@ -90,7 +90,7 @@ bindkey "${key_info[Left]}" backward-char
 bindkey "${key_info[Right]}" forward-char
 
 # Expandpace.
-bindkey ' ' magic-space
+#bindkey ' ' magic-space
 
 # Clear 
 bindkey "${key_info[Control]}L" clear-screen
