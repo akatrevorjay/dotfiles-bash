@@ -1,6 +1,5 @@
 #!/bin/zsh
 
-
 # TODO SWITCH TO ZPLUGIN -- It's the superior choice here.
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -26,7 +25,7 @@ zplug "$SHELL_CONF_DIR/plugins/custom-terminfo", from:local
 # Stupid hack to get fpath to work with zplug
 zplug "$SHELL_CONF_DIR/plugins/fix_fpath", from:local, nice:19
 
-zplug "erichs/composure", of:"*.sh"
+zplug 'erichs/composure', of:'{composure.sh,c_extras.sh}'
 
 zplug "junegunn/fzf", as:command, of:"bin/fzf*", do:"./install --bin"
 zplug "$SHELL_CONF_DIR/plugins/fzf", from:local
@@ -35,13 +34,13 @@ zplug "$SHELL_CONF_DIR/plugins/fzf", from:local
 zplug 'psprint/zsnapshot'
 
 # EasyMotion for ZSH
-#zplug 'hchbaw/zce.zsh'
+zplug 'hchbaw/zce.zsh'
 
 # Nice curses interface to certain completions and navigations
-#zplug 'psprint/zsh-navigation-tools'
+zplug 'psprint/zsh-navigation-tools'
 
 # Inject emoji as part of tab title according to running app
-#zplug 'the8/terminal-app.zsh'
+zplug 'the8/terminal-app.zsh'
 
 #export ENHANCD_FILTER=fzf:peco:gof
 #export ENHANCD_COMMAND=ecd
@@ -59,8 +58,8 @@ zplug "zsh-users/zsh-history-substring-search", nice:16
 ## Easily cd to gitroot
 #zplug "mollifier/cd-gitroot"
 
-## Easily deal with autoload functions, even hot reload
-#zplug "mollifier/zload"
+# Easily deal with autoload functions, even hot reload
+zplug "mollifier/zload"
 
 ## GitHub-like contribution calendar
 #zplug "k4rthik/git-cal", as:command
@@ -69,12 +68,12 @@ zplug "zsh-users/zsh-history-substring-search", nice:16
 zplug "zsh-users/zsh-completions", of:"*.zsh", nice:8
 fpath+=("$SHELL_CONF_DIR/zsh-plugged/repos/zsh-users/zsh-completions/src")
 
-# zsh-hooks
+## zsh-hooks
 #zplug 'willghatch/zsh-hooks'
 
 # zsh-completion-generator (getopts-style help parser)
-#GENCOMPL_FPATH = $SHELLCONFDIR/zsh-cache/gencomplete
-#zplug 'RobSis/zsh-completion-generator'
+GENCOMPL_FPATH="$SHELL_CONF_DIR/zsh-cache/gencomplete"
+zplug 'RobSis/zsh-completion-generator'
 
 ## Add history-substring-search-* widgets to list of widgets that clear the autosuggestion
 #ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
@@ -94,7 +93,10 @@ zplug "zsh-users/zsh-syntax-highlighting", nice:15
 zplug 'wbinglee/zsh-wakatime'
 
 # Easy venv per utility app
-#zplug 'sharat87/pip-app'
+zplug 'sharat87/pip-app'
+
+# Auto-source .env files in dir
+zplug 'kennethreitz/autoenv'
 
 ##
 ## Themes
@@ -112,7 +114,7 @@ zplug 'wbinglee/zsh-wakatime'
 
 #zplug "plugins/zsh_reload", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/fasd", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/autoenv", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/autoenv", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/safe-paste", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/history-substring-search", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/dirpersist", from:oh-my-zsh, ignore:oh-my-zsh.zsh
@@ -123,13 +125,13 @@ zplug "plugins/command-not-found", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/colored-man-pages", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/man", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 
-zplug "plugins/python", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/pip", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-#zplug "plugins/vitualenv", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-#zplug "plugins/vitualenvwrapper", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/autopep8", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/pep8", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/pylint", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/python", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/pip", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+##zplug "plugins/vitualenv", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+##zplug "plugins/vitualenvwrapper", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/autopep8", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/pep8", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/pylint", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 
 
 #zplug "plugins/git", from:oh-my-zsh, ignore:oh-my-zsh.zsh

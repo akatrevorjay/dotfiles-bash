@@ -30,10 +30,10 @@ export SHELL_CONF_DIR
 #if [[ -e "$ZSH_ZWC" ]]; then
 #    fpath=("$ZSH_ZWC" $fpath)
 #else
-    fpath=("$SHELL_CONF_DIR/zsh-functions" $fpath)
+#    fpath=("$SHELL_CONF_DIR/zsh-functions" $fpath)
 #fi
 
-#autoload -Uz shellconf-init
+autoload -Uz shellconf-init
 . "$SHELL_CONF_DIR/rc.zsh"
 shellconf-init
 
