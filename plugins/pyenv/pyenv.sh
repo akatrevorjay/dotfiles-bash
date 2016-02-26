@@ -9,7 +9,7 @@ alias activate='pyenv activate'
 #alias deactivate='pyenv deactivate'
 if has_cmd pyenv; then
     #eval "$(pyenv init - --no-rehash "$CURRENT_SHELL")"
-    eval "$(pyenv init - "$CURRENT_SHELL")"
+    eval "$(pyenv init --no-rehash - "$CURRENT_SHELL")"
 
     # If we don't do the above then this is needed
     #source "$PYENV_ROOT/completions/pyenv."$CURRENT_SHELL""

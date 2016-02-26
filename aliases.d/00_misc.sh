@@ -24,3 +24,4 @@ alias idle='nice -n19 ionice -c3'
 
 alias zls='zfs list -o name,used,avail,refer,mountpoint,usedbysnapshots,compress,compressratio,usedbychildren,usedbydataset,usedbyrefreservation,usedbysnapshots'
 alias zfsls='zls'
+

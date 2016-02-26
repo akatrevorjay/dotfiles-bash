@@ -18,7 +18,7 @@ zplug "$SHELL_CONF_DIR/plugins/spectrum", from:local
 zplug "$SHELL_CONF_DIR/plugins/input", from:local
 zplug "$SHELL_CONF_DIR/plugins/environment", from:local
 zplug "$SHELL_CONF_DIR/plugins/git", from:local
-zplug "$SHELL_CONF_DIR/plugins/tmux", from:local
+#zplug "$SHELL_CONF_DIR/plugins/tmux", from:local
 zplug "$SHELL_CONF_DIR/plugins/custom-terminfo", from:local
 #zplug "$SHELL_CONF_DIR/plugins/debug", from:local, of:"init.zsh"
 
@@ -41,7 +41,7 @@ zplug 'psprint/zsnapshot'
 #zplug 'psprint/zsh-navigation-tools'
 
 # Inject emoji as part of tab title according to running app
-zplug 'the8/terminal-app.zsh'
+#zplug 'the8/terminal-app.zsh'
 
 #export ENHANCD_FILTER=fzf:peco:gof
 #export ENHANCD_COMMAND=ecd
@@ -95,7 +95,7 @@ zplug "zsh-users/zsh-syntax-highlighting", nice:15
 zplug 'wbinglee/zsh-wakatime'
 
 # Easy venv per utility app
-zplug 'sharat87/pip-app'
+#zplug 'sharat87/pip-app'
 
 # Auto-source .env files in dir
 zplug 'kennethreitz/autoenv', nice:-5
