@@ -1,0 +1,3 @@
+
+alias rm='trash -v'
+

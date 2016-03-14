@@ -1,0 +1,1 @@
+/Users/trevorj/.pythonrc.py

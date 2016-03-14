@@ -1,0 +1,17 @@
+/trace
+/debug
+
+/*history
+/zdirs
+/zcompdump*
+/*-lib/
+/*cache
+
+*-local
+*-local.*
+/zsh-plugged
+
+*.zwc
+*.swp
+*.swo
+

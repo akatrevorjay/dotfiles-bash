@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eo pipefail
+#set -xv
+
+file="$1"; shift
+out="compose-$file"
+
+rocker-compose run -f "$file" --attach --wait "1s" --print > "$out"
+
+export COMPOSE_PROJECT_NAME="${file%.yml}"
+exec docker-compose -f "$out" "$@"

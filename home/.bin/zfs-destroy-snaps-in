@@ -1,0 +1,3 @@
+#!/bin/bash -ev
+[[ $# > 0 ]] || (echo "Usage: $0 [-r] <dataset>" >&2; exit 1)
+zfs list -H -o name -t snapshot "$@" | xargs -n1 zfs destroy

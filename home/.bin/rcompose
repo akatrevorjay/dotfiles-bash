@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eo pipefail
+set -xv
+
+export \
+  RANCHER_ACCESS_KEY=0D099F9103878A9CB57E \
+  RANCHER_SECRET_KEY=ZS7xc3zLL4FX4MLScCXY125bMS9XCvTf587n8CKN \
+  RANCHER_URL=https://rancher.vkportal.com/v1/projects/1a5
+
+exec rancher-compose "$@"
+
