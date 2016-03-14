@@ -39,6 +39,7 @@ zstyle ':completion:*' rehash true  # auto rehash
 
 # sections completion !
 #zstyle ':completion:*' verbose yes
+#zstyle ':completion:*' extra-verbose yes
 #zstyle ':completion:*:descriptions' format $'\e[00;34m%d'
 #zstyle ':completion:*:messages' format $'\e[00;31m%d'
 #zstyle ':completion:*' group-name ''
@@ -182,10 +183,6 @@ zstyle ':completion:*:*:cd:*:directory-stack' menu yes select
 zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directories' 'expand'
 zstyle ':completion:*' squeeze-slashes true
 
-## enable caching
-#zstyle ':completion::complete:*' use-cache on
-#zstyle ':completion::complete:*' cache-path "${ZDOTDIR:-${HOME}}/.zcompcache"
-
 # ignore useless commands and functions
 zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec)|prompt_*)'
 
@@ -199,7 +196,7 @@ zstyle ':completion:*:manuals.(^1*)' insert-sections true
 # history
 zstyle ':completion:*:history-words' stop yes
 zstyle ':completion:*:history-words' remove-all-dups yes
-zstyle ':completion:*:history-words' list false
+zstyle ':completion:*:history-words' list true
 zstyle ':completion:*:history-words' menu yes
 
 # ignore multiple entries.

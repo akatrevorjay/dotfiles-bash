@@ -12,6 +12,16 @@ alias lla='ll -a'
 alias duh='du -h'
 alias dfh='df -h'
 
+! has_cmd colordiff \
+    || alias diff='colordiff'
+
+# Colored up cat!
+# You must install Pygments first - "sudo easy_install Pygments"
+if has_cmd pygmentize; then
+    alias colorcat='pygmentize -O style=monokai -f console256 -g'
+    alias cat='colorcat'
+fi
+
 #alias rdesktop='rdesktop -g 1280x1024'
 #alias mstsc='rdesktop'
 
@@ -25,3 +35,4 @@ alias idle='nice -n19 ionice -c3'
 alias zls='zfs list -o name,used,avail,refer,mountpoint,usedbysnapshots,compress,compressratio,usedbychildren,usedbydataset,usedbyrefreservation,usedbysnapshots'
 alias zfsls='zls'
 
+alias pipsi='~/.pyenv/versions/utils/bin/pipsi'

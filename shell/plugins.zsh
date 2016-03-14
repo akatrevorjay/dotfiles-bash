@@ -9,9 +9,15 @@ DISABLE_AUTO_UPDATE="true"
 export ZSH_CUSTOM="$SHELL_CONF_DIR/zsh-custom"
 export ZSH_CACHE_DIR="$SHELL_CONF_DIR/zsh-cache"
 
+# This needs to be after pyenv, that's all that matters here.
+# TODO integrate with pyenv as a plugin, that's how this should be really handled.
+zplug "$SHELL_CONF_DIR/plugins/pipsi", from:local, nice:-4
+
 zplug "$SHELL_CONF_DIR/plugins/pyenv", from:local, nice:-5
 #zplug "$SHELL_CONF_DIR/plugins/bash_completion", from:local, nice:-5
 #zplug "$SHELL_CONF_DIR/plugins/better_man", from:local
+
+zplug "$SHELL_CONF_DIR/plugins/rbenv", from:local, nice:-5
 
 zplug "$SHELL_CONF_DIR/plugins/utility", from:local
 zplug "$SHELL_CONF_DIR/plugins/spectrum", from:local
@@ -19,6 +25,7 @@ zplug "$SHELL_CONF_DIR/plugins/input", from:local
 zplug "$SHELL_CONF_DIR/plugins/environment", from:local
 zplug "$SHELL_CONF_DIR/plugins/git", from:local
 #zplug "$SHELL_CONF_DIR/plugins/tmux", from:local
+zplug "$SHELL_CONF_DIR/plugins/osx", from:local
 zplug "$SHELL_CONF_DIR/plugins/custom-terminfo", from:local
 #zplug "$SHELL_CONF_DIR/plugins/debug", from:local, of:"init.zsh"
 
@@ -92,7 +99,7 @@ zplug "zsh-users/zsh-syntax-highlighting", nice:15
 #zplug "jimmijj/chromatic-zsh", of:chromatic-zsh.zsh, nice:15
 
 # Wakatime integration
-zplug 'wbinglee/zsh-wakatime'
+#zplug 'wbinglee/zsh-wakatime'
 
 # Easy venv per utility app
 #zplug 'sharat87/pip-app'
@@ -122,7 +129,7 @@ zplug "plugins/fasd", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/dirpersist", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/dirhistory", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/battery", from:oh-my-zsh, ignore:oh-my-zsh.zsh
-zplug "plugins/bgnotify", from:oh-my-zsh, ignore:oh-my-zsh.zsh
+#zplug "plugins/bgnotify", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 zplug "plugins/command-not-found", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/colored-man-pages", from:oh-my-zsh, ignore:oh-my-zsh.zsh
 #zplug "plugins/man", from:oh-my-zsh, ignore:oh-my-zsh.zsh

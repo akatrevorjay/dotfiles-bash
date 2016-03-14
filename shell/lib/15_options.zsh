@@ -67,6 +67,10 @@ unsetopt ignore_eof             # do not exit on end-of-file
 unsetopt list_beep              # no bell on ambiguous completion
 unsetopt rm_star_silent         # ask for confirmation for `rm *' or `rm path/*'
 
+# Nobody need flow control anymore. Troublesome feature.
+#stty -ixon
+setopt noflowcontrol
+
 # Pushd
 setopt auto_pushd               # make cd push old dir in dir stack
 setopt pushd_ignore_dups        # no duplicates in dir stack

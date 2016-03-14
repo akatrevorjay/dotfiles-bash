@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
 ## Profiling
 #[[ -z "$ZSH_PROFILE_RC" ]] || which zmodload >&/dev/null && zmodload zsh/zprof
 
