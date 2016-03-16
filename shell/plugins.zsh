@@ -19,6 +19,7 @@ zplug "$SHELL_CONF_DIR/plugins/pyenv", from:local, nice:-5
 
 zplug "$SHELL_CONF_DIR/plugins/rbenv", from:local, nice:-5
 
+zplug "$SHELL_CONF_DIR/plugins/colors", from:local, nice:-1
 zplug "$SHELL_CONF_DIR/plugins/utility", from:local
 zplug "$SHELL_CONF_DIR/plugins/spectrum", from:local
 zplug "$SHELL_CONF_DIR/plugins/input", from:local

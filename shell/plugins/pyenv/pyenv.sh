@@ -1,30 +1,7 @@
 
-__SAVE_PATH=""
+autoload -Uz first save-path restore-path
 
-function save_path() {
-    # What the fuck pyenv
-    __SAVE_PATH="$PATH"
-}
-
-function restore_path() {
-    # What the fuck pyenv
-    PATH="$__SAVE_PATH"
-    unset __SAVE_PATH
-}
-
-function first_path() {
-    local test_eval="${1:-'test -e "$path"'}"
-    shift
-
-    for path in "$@"; do
-        eval $test_eval || continue
-
-        echo "$path"
-        break
-    done
-}
-
-: ${PYENV_ROOT:="$(first_path 'test -d "$path"' "$HOME/.pyenv" "/usr/local/var/pyenv")"}
+: ${PYENV_ROOT:="$(first 'test -d "$arg"' "$HOME/.pyenv" "/usr/local/var/pyenv")"}
 export PYENV_ROOT
 
 if [[ -z "$PYENV_ROOT" ]]; then
@@ -36,8 +13,8 @@ fi
 export PYENV_VIRTUALENV_DISABLE_PROMPT
 
 path_prepend \
-    $(first_path 'test -d "$path"' "$PYENV_ROOT/shims") \
-    $(first_path 'test -x "$path/pyenv"' "$PYENV_ROOT/bin") \
+    $(first 'test -d "$path"' "$PYENV_ROOT/shims") \
+    $(first 'test -x "$path/pyenv"' "$PYENV_ROOT/bin") \
     && :
 
 ## pyenv

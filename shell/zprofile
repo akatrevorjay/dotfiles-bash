@@ -1,17 +1,2 @@
 # This is sourced for login shells.
 
-# Dedupe entries
-declare -Ug path
-
-# Make sure gnubin is before usr/local
-path=(/usr/local/libexec/gnubin /usr/local/opt/ccache/libexec /usr/local/bin /usr/local/sbin /usr/bin /usr/sbin /bin /sbin /$path[@])
-# pyenv
-path=(~/.pyenv/shims ~/.pyenv/bin $path[@])
-# go
-path=(~/go/bin $path[@])
-# wrapper bin
-path=(~/.bin $path[@])
-
-typeset -Ug manpath
-manpath=("/usr/local/share/man" "/usr/share/man" $manpath[@])
-

@@ -1,41 +1,46 @@
 #!/bin/zsh
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+export fpath=($HOME/.zplugin $fpath[@])
+source "$HOME/.zplugin/zplugin.zsh"
+source "$HOME/.zplugin/plugins.zsh"
+zplugin compinit
 
-## Profiling
-#[[ -z "$ZSH_PROFILE_RC" ]] || which zmodload >&/dev/null && zmodload zsh/zprof
+#source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
-SHELL_CONF_DIR="$HOME/.shell"
+### Profiling
+##[[ -z "$ZSH_PROFILE_RC" ]] || which zmodload >&/dev/null && zmodload zsh/zprof
 
-# Tell ZSH and friends that this is where to look for dotfiles
-#ZDOTDIR="$SHELL_CONF_DIR"
-# unfortunately, almost nothing pays attention to this.
-ZDOTDIR="$HOME"
+#SHELL_CONF_DIR="$HOME/.shell"
 
-#ZSH_ZWC="$SHELL_CONF_DIR/.zshrc.zwc"
-ZSH_ZWC="$ZDOTDIR/.zshrc.zwc"
+## Tell ZSH and friends that this is where to look for dotfiles
+##ZDOTDIR="$SHELL_CONF_DIR"
+## unfortunately, almost nothing pays attention to this.
+#ZDOTDIR="$HOME"
 
-# Set env up
-CURRENT_SHELL="$ZSH_NAME"
+##ZSH_ZWC="$SHELL_CONF_DIR/.zshrc.zwc"
+#ZSH_ZWC="$ZDOTDIR/.zshrc.zwc"
 
-export SHELL_CONF_DIR
+## Set env up
+#CURRENT_SHELL="$ZSH_NAME"
 
+#export SHELL_CONF_DIR
+
+###
+### Common
+###
+
+##[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+
+### Shell conf
+##source "$SHELL_CONF_DIR/rc"
 ##
-## Common
-##
+##if [[ -e "$ZSH_ZWC" ]]; then
+##    fpath=("$ZSH_ZWC" $fpath)
+##else
+##    fpath=("$SHELL_CONF_DIR/zsh-functions" $fpath)
+##fi
 
-#[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
-
-## Shell conf
-#source "$SHELL_CONF_DIR/rc"
-#
-#if [[ -e "$ZSH_ZWC" ]]; then
-#    fpath=("$ZSH_ZWC" $fpath)
-#else
-#    fpath=("$SHELL_CONF_DIR/zsh-functions" $fpath)
-#fi
-
-autoload -Uz shellconf-init
-. "$SHELL_CONF_DIR/rc.zsh"
-shellconf-init
+#autoload -Uz shellconf-init
+#. "$SHELL_CONF_DIR/rc.zsh"
+#shellconf-init
 

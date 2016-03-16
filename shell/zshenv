@@ -11,3 +11,5 @@ path=("$HOME/.bin" "$HOME/.local/bin" "$HOME/.pyenv/shims" "$HOME/.rbenv/shims" 
 typeset -Ug manpath
 manpath=("$HOME/.local/share/man" "/usr/local/share/man" "/usr/share/man" $manpath[@])
 
+export GOPATH="$HOME/go"
+
